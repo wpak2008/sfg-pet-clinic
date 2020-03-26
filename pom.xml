@@ -33,12 +33,12 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
     </build>
     <scm>
         <developerConnection>scm:git:https://github.com/wpak2008/sfg-pet-clinic.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 </project>
