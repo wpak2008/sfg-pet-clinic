@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Collection;
+import java.util.Set;
 
 
 @Controller
@@ -34,7 +35,9 @@ public class PetController {
 
     @ModelAttribute("types")
     public Collection<PetType> populatePetTypes() {
-        return petTypeService.findAll();
+        Set<PetType> petTypes = petTypeService.findAll();
+
+        return petTypes;
     }
 
     @ModelAttribute("owner")
@@ -51,6 +54,7 @@ public class PetController {
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         model.addAttribute("pet", pet);
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
